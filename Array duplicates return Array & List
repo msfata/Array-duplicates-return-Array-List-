@@ -1,0 +1,28 @@
+import java.util.Arrays;
+import java.util.LinkedHashSet;
+import java.util.LinkedList;
+import java.util.List;
+
+public class Test1 {
+	public static void main(String[] args) {
+		List<Integer> list = getDuplicatesList(1, 2, 2, 3);
+		list.forEach(v -> System.out.print(v + " "));
+
+		System.out.println();
+		
+		Integer[] arr = getDuplicatesArray(1, 2, 2, 3);
+		for (Integer integer : arr) {
+			System.out.print(integer != null ? integer+" " : "");
+		}
+	}
+
+	public static List<Integer> getDuplicatesList(Integer... array) {
+		LinkedHashSet<Integer> set = new LinkedHashSet<Integer>(Arrays.asList(array));
+		return new LinkedList<Integer>(set);
+	}
+
+	public static Integer[] getDuplicatesArray(Integer... array) {
+		LinkedHashSet<Integer> set = new LinkedHashSet<Integer>(Arrays.asList(array));
+		return set.toArray(array);
+	}
+}
